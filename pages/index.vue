@@ -35,10 +35,10 @@
       </div>
     </header>
     <main class="container mx-auto">
-      <section class="flex">
+      <section class="flex block">
         <div class="w-1/3 relative">
           <div class="relative">
-            <a href="">
+            <a href="#">
               <img src="~/assets/img/khay-dung-but-356x220.jpg" alt="" />
             </a>
           </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="w-1/3 relative">
           <div class="relative">
-            <a href="">
+            <a href="#">
               <img src="~/assets/img/dreamcatcher-356x220.jpg" alt="" />
             </a>
           </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="w-1/3 relative">
           <div class="relative">
-            <a href="">
+            <a href="#">
               <img src="~/assets/img/lo-hoa-bang-giay-bao-cu-356x220.jpg" alt="" />
             </a>
           </div>
@@ -93,5 +93,8 @@ export default {}
 }
 .container{
   max-width: 1204px !important;
+}
+.block img{
+  filter: brightness(0.7);
 }
 </style>
