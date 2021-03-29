@@ -23,4 +23,9 @@
   left: 2%;
 }
 
+.main-content .title-content h3.font-bold {
+  width: fit-content;
+  border-bottom: 2px solid;
+}
+
 /*# sourceMappingURL=style.css.map */
