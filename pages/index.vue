@@ -77,14 +77,14 @@
         </div>
       </section>
       <section class="flex main-content mt-4">
-        <div class="list-post w-9/12">
+        <div class="list-post w-8/12">
           <div class="title-content">
             <h3 class="text-xl font-bold">Mới nhất</h3>
             <div class="item-post flex" v-for="post in posts" :key="post.category">
-              <div class="img w-3/12">
-                <img :src="post.img" alt="">
+              <div class="img w-4/12">
+                <img :src="require(`~/assets/img/${post.img}`)" alt="">
               </div>
-              <div class="title-post w-9/12">
+              <div class="title-post w-8/12">
                 <h3><a href="#">{{post.title}}</a></h3>
                 <p><span>{{post.category}}</span> CÁCH LÀM HAY - {{ post.date }}</p>
                 <div class="description">
@@ -94,10 +94,96 @@
             </div>
           </div>
         </div>
-        <div class="side-bar w-3/12">
-          <h3>Theo dõi chúng tôi</h3></div>
+        <div class="side-bar w-4/12">
+          <h3 class="text-xl font-bold">Theo dõi chúng tôi</h3>
+          <div class="follow flex">
+            <div class="social">
+              <i class="fab fa-facebook-f"></i>
+              <p>12,050</p>
+              <span>Thành viên</span>
+            </div>
+            <div class="social">
+              <i class="fas fa-caret-right"></i>
+              <p>2,362</p>
+              <span>Người theo dõi</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold common">Phổ biến</h3>
+          <div class="sidebar-post">
+            <div class="flex" v-for="sidebar in sidebars" :key="sidebar.img">
+              <div class="img-sidebar w-4/12">
+                <img :src="require(`~/assets/img/${ sidebar.img }`)" alt="">
+              </div>
+              <div class="content-sidebar w-8/12">
+                <h3>{{ sidebar.title }}</h3>
+                <p>{{ sidebar.date }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="block_inner">
+            <div class="block relative">
+              <img class="relative" :src="require(`~/assets/img/tu-lam-do-choi-bang-chu-cai-cho-be-tu-nap-chai-nhua-696x392.png`)" alt="">
+              <h3 class="absolute font-bold"><a href="#">Tự làm đồ chơi bảng chữ cái cho bé từ nắp chai nhựa</a></h3>
+            </div>
+            <div class="block relative">
+              <img class="relative" :src="require(`~/assets/img/bup-be-len.jpg`)" alt="">
+              <h3 class="absolute font-bold"><a href="#">Hướng dẫn cách làm 3 món đồ handmade bằng len đơn giản</a></h3>
+            </div>
+            <div class="block relative">
+              <img class="relative" :src="require(`~/assets/img/cach-tu-lam-do-choi-domino-cho-be-4k-696x392.png`)" alt="">
+              <h3 class="absolute font-bold"><a href="#">Cách tự làm đồ chơi Domino cho bé</a></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="covid-country">
+        <div class="title">
+          <h3 class="text-xl font-bold">COVID-19</h3>
+        </div>
+        <div class="flex">
+          <div class="country" v-for="covid in covids" :key="covid.number">
+            <h3>{{ covid.country }}</h3>
+            <p>{{ covid.number }}</p>
+            <span>{{ covid.text }}</span>
+          </div>
+        </div>
       </section>
     </main>
+    <footer>
+      <div class="footer-main">
+        <div class="container mx-auto">
+          <div class="logo">
+            <img :src="require(`~/assets/img/logo-cachlamhay-final-tiny.png`)" alt="">
+          </div>
+          <div class="about">
+            <p>Đến với cửa hàng đồ handmade của chúng tôi thì chắc chắn bạn sẽ cảm nhận được sự khác biệt trong từng sản phẩm. Từ những món quà rất nhỏ như chiếc ví, tấm thiệp… đều có thể biến tấu thành món đồ handmade rất xinh xắn, dễ thương. Tất cả đều được yêu thích và ưa chuộng bởi sự sáng tạo và mang ý nghĩa thật đặc biệt. Dường như, mỗi món quà đều chứa đựng, gửi gắm tâm huyết, tình cảm của người làm…</p>
+          </div>
+          <div class="contact">
+            <p>Contact us:<a href="#">info@pegi.vn</a></p>
+          </div>
+          <div class="social flex">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container mx-auto flex">
+          <div class="bottom-left">
+            <p>© Copyright 2020 cachlamhay. All Rights Reserved</p>
+          </div>
+          <div class="bottom-right">
+            <ul class="flex">
+              <li><a href="#">Đồ chơi</a></li>
+              <li><a href="#">Hoa giấy</a></li>
+              <li><a href="#">Tái chế</a></li>
+              <li><a href="#">Trang trí</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -105,58 +191,112 @@
 export default {
   data () {
     return {
+      covids: [
+        {
+          country: 'Việt Nam',
+          number: '2,576',
+          text: 'Ca xác nhận'
+        },
+        {
+          country: 'Việt Nam',
+          number: '2,265',
+          text: 'Ca hồi phục'
+        },
+        {
+          country: 'Việt Nam',
+          number: '276',
+          text: 'Ca đang điều trị'
+        },
+        {
+          country: 'Việt Nam',
+          number: '35',
+          text: 'Tử vong'
+        },
+        {
+          country: 'Thế giới',
+          number: '125,087,561',
+          text: 'Ca xác nhận dương tính'
+        }
+      ],
+      sidebars: [
+        {
+          img: 'khay-dung-but-356x220.jpg',
+          title: 'Gợi ý một số cách làm đồ handmade tái chế đơn...',
+          date: '14/03/2021'
+        },
+        {
+          img: 'dreamcatcher-356x220.jpg',
+          title: 'Bật mí những món đồ handmade dễ làm, bạn không nên...',
+          date: '14/03/2021'
+        },
+        {
+          img: 'lo-hoa-bang-giay-bao-cu-356x220.jpg',
+          title: 'Hướng dẫn cách làm một số món đồ handmade tái chế ...',
+          date: '14/03/2021'
+        },
+        {
+          img: 'may-bay-truc-thang-bang-nhua-696x392.jpg',
+          title: 'Gợi ý cách làm một số món đồ chơi từ chai...',
+          date: '14/03/2021'
+        },
+        {
+          img: 'thiep-handmade-696x392.jpg',
+          title: 'Bật mí 5 món quà handmade 8/3 ngọt ngào, ý nghĩa',
+          date: '14/03/2021'
+        }
+      ],
       posts: [
         {
-          img: '~/assets/img/may-bay-truc-thang-bang-nhua-696x392.jpg',
+          img: 'may-bay-truc-thang-bang-nhua-696x392.jpg',
           title: 'Gợi ý cách làm một số món đồ chơi từ chai nhựa cho bé',
-          category: 'Đồ chơi',
+          category: 'ĐỒ CHƠI',
           date: '14/03/2021',
           description: 'Nếu biết tận dụng và tái chế chai nhựa thì bạn sẽ không chỉ mang đến cho bé yêu nhà bạn những món đồ chơi độc lạ, thú vị. Mà...'
         },
         {
-          img: '/_nuxt/assets/img/a.png',
+          img: 'thiep-handmade-696x392.jpg',
           title: 'Bật mí 5 món quà handmade 8/3 ngọt ngào, ý nghĩa',
           category: 'QUÀ TẶNG',
           date: '12/03/2021',
           description: 'Mùng 8 tháng 3, chắc chắn nhiều phái nam đang vô cùng băn khoăn và trăn trở. Khi không biết nên tặng quà gì cho đối phương. Nếu bạn cũng...'
         },
         {
-          img: '/_nuxt/assets/img/thiep-giay-xoan-696x556.png',
+          img: 'thiep-giay-xoan-696x556.png',
           title: 'Cách làm một số món quà handmade 8/3 đơn giản, ý nghĩa',
           category: 'QUÀ TẶNG',
           date: '10/03/2021',
           description: 'Bạn được trời phú cho một chút “hoa tay” và sở hữu sự khéo léo cùng tính kiên nhẫn, tỉ mỉ? Vào dịp 8/3 này, bạn muốn dành sự bất...'
         },
         {
-          img: '/_nuxt/assets/img/8.3-696x464.jpg',
+          img: '8.3-696x464.jpg',
           title: '8/3 là ngày gì? Nguồn gốc và ý nghĩa của ngày 8/3',
           category: 'QUÀ TẶNG',
           date: '08/03/2021',
           description: 'Vào ngày 8/3 hằng năm, hầu như ai cũng thấy phái nữ sẽ được tặng hoa, tặng quà và được nhận những lời chúc ý nghĩa ngọt ngào. Vậy 8/3...'
         },
         {
-          img: '/_nuxt/assets/img/tohe-shop.jpg',
+          img: 'tohe-shop.jpg',
           title: 'Mua quà 8/3 ở đâu? Top 4 địa chỉ nổi tiếng ở Hà Nội',
           category: 'QUÀ TẶNG',
           date: '05/03/2021',
           description: '8/3 đã cận kề. Thế nhưng, các phái nam lại đang rất băn khoăn khi không biết mua quà 8/3 ở đâu? Để tặng cho những người phụ nữ mà...'
         },
         {
-          img: '/_nuxt/assets/img/thiep-handmade-696x392.jpg',
+          img: 'thiep-handmade-696x392.jpg',
           title: 'Điểm danh những món quà handmade 8/3 ý nghĩa',
           category: 'QUÀ TẶNG',
           date: '04/03/2021',
           description: 'Dường như ai cũng biết, 8/3 là ngày mà phái mạnh sẽ có cơ hội thể hiện tình cảm cũng như sự quý mến đối với những người phụ nữ...'
         },
         {
-          img: '/_nuxt/assets/img/Dừa’s-Craft-696x696.jpg',
+          img: 'Dừa’s-Craft-696x696.jpg',
           title: 'Top 4 shop mua nguyên liệu handmade tốt nhất ở Hà Nội',
           category: 'TÁI CHẾ',
           date: '18/02/2021',
           description: 'Chắc hẳn, các bạn đã từng đau đầu. Vì không biết nên chọn mua quà gì cho bạn bè, người thân vào những dịp đặc biệt. Gợi ý, bạn có...'
         },
         {
-          img: '/_nuxt/assets/img/gau-bong.jpg',
+          img: 'gau-bong.jpg',
           title: 'Top 5 món quà tặng bạn gái cực kỳ ý nghĩa không nên bỏ qua',
           category: 'QUÀ TẶNG',
           date: '14/03/2021',

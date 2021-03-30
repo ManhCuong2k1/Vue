@@ -26,3 +26,206 @@
         }
     } 
 }
+.main-content {
+    .title-content {
+        .item-post {
+            margin-top: 30px;
+            .img {
+                height: fit-content;
+                img {
+                    height: 168px;
+                    width: 100%;
+                }
+            } 
+            .title-post {
+                padding: 15px 20px 0px 20px;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-bottom: 9px;
+                }
+                p {
+                    font-size: 12px;
+                    color: #999999;
+                    margin-bottom: 16px;
+                    span {
+                        font-weight: 600;
+                        color: black;
+                    }
+                }
+                .description {
+                    p {
+                        font-size: 13px;
+                        color: #444444;
+                    }
+                }
+
+            }
+        }
+    }
+}
+.main-content {
+    .side-bar {
+        padding-left: 30px;
+        margin-top: 20px;
+        h3.text-xl {
+            border-bottom: 2px solid;
+            width: fit-content;
+        }
+        .follow {
+            .social {
+                text-align: center;
+                background-color: #222;
+                color: white;
+                width: 100px;
+                height: 100px;
+                margin: 30px 18px 0px 0px;
+                padding: 14px 0 0 0;
+                transition: 0.3s ease all;
+                &:hover {
+                    cursor: pointer;
+                }
+                &:first-child {
+                    &:hover {
+                        background-color: #516eab;
+                    }
+                }
+                &:last-child {
+                    &:hover {
+                        background-color: #e14e42;
+                    }
+                }
+                p {
+                    font-size: 17px;
+                }
+                span {
+                    font-size: 13px;
+                }
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+        .common {
+            margin-top: 30px;
+        }
+        .sidebar-post {
+            .content-sidebar {
+                padding: 5px 0px 0px 14px;
+                h3 {
+                    font-size: 14px;
+                    margin-bottom: 3px;
+                }
+                p {
+                    color: #aaa;
+                    font-size: 11px;
+                }
+            }
+            .flex {
+                margin-top: 20px;
+            }
+        }
+        .block_inner {
+            .block {
+                text-align: center;
+                transition: 0.3s ease all;
+                &:hover {
+                    // filter: brightness(0.5);
+                    cursor: pointer;
+                    // color: white;
+                }
+                img {
+                    height: 200px;
+                }
+                h3 {
+                    color: white;
+                    top: 38%;
+                    padding: 0 40px;
+                    z-index: 999;
+                }
+            }
+        }
+    }
+}
+.covid-country {
+    margin-bottom: 70px;
+    .title {
+        margin: 50px 0px 20px 70px;
+        h3 {
+            width: fit-content;
+            border-bottom: 2px solid;
+            font-size: 23px;
+        }
+    }
+    .country {
+        width: 20%;
+        text-align: center;
+        h3 {
+            font-size: 23px;
+        }
+        p {
+            font-size: 23px;
+            color: #1e73be;
+        }
+        span {
+            font-size: 17px;
+        }
+    }
+}
+.footer-main {
+    background: #222222;
+    padding: 50px 0px;
+    text-align: center;
+    .logo {
+        img {
+            width: 22%;
+            margin: auto;
+        }
+    }
+    .about {
+        p {
+            color: white;
+            padding: 20px 120px;
+        }
+    }
+    .contact {
+        p {
+            color: white;
+            a {
+                color: #cb9558;
+            }
+        }
+    }
+    .social {
+        justify-content: center;
+        margin-top: 16px;
+        a {
+            border: 1px solid rgba(203,149,88,0.03);
+            padding: 7px 0px;
+            background-color: rgba(255,255,255,0.03);
+            margin-right: 10px;
+            i {
+                width: 40px;
+                color: white;
+            }
+        }
+    }
+}
+.footer-bottom {
+    background-color: #080810;
+    color: white;
+    font-size: 12px;
+    padding: 10px 0px;
+    .bottom-right {
+        margin-left: auto;
+        li {
+            margin-right: 20px;
+            a {
+                transition: 0.3s ease all;
+                &:hover {
+                    color:#cb9558;
+                }
+            }
+        }
+    }
+}
