@@ -5,88 +5,65 @@
         <header class="container mx-auto">
           <div class="">
             <ul class="flex">
-              <li class="p-2 text-xs">Đồ chơi</li>
-              <li class="p-2 text-xs">Hoa giấy</li>
-              <li class="p-2 text-xs">Tái chế</li>
-              <li class="p-2 text-xs">Trang trí</li>
+              <li class="p-2 text-xs"><a href="#">Đồ chơi</a></li>
+              <li class="p-2 text-xs"><a href="#">Hoa giấy</a></li>
+              <li class="p-2 text-xs"><a href="#">Tái chế</a></li>
+              <li class="p-2 text-xs"><a href="#">Trang trí</a></li>
             </ul>
           </div>
         </header>
       </div>
       <div class="main-menu">
-        <div class="lg:container mx-auto">
+        <div class="container mx-auto">
           <div class="logo">
             <img
-              src="~/assets/img/logo-cachlamhay-final-tiny.png"
+              src="/img/logo-cachlamhay-final-tiny.png"
               alt=""
               class="w-96 mx-auto p-4"
             />
           </div>
-          <div class="menu">
-            <ul class="flex justify-center">
-              <li class="text-black font-bold px-4 text-sm py-3">TRANG TRÍ</li>
-              <li class="text-black font-bold px-4 text-sm py-3">ĐỒ CHƠI</li>
-              <li class="text-black font-bold px-4 text-sm py-3">HOA GIẤY</li>
-              <li class="text-black font-bold px-4 text-sm py-3">TÁI CHẾ</li>
-              <li class="text-black font-bold px-4 text-sm py-3">COVID-19</li>
+          <div class="menu flex flex-wrap">
+            <ul class="flex justify-center w-11/12 sm:pl-20 pl-24">
+              <li class="text-black font-bold px-4 text-sm py-3"><a href="#">TRANG TRÍ</a></li>
+              <li class="text-black font-bold px-4 text-sm py-3"><a href="#">ĐỒ CHƠI</a></li>
+              <li class="text-black font-bold px-4 text-sm py-3"><a href="#">HOA GIẤY</a></li>
+              <li class="text-black font-bold px-4 text-sm py-3"><a href="#">TÁI CHẾ</a></li>
+              <li class="text-black font-bold px-4 text-sm py-3"><a href="#">COVID-19</a></li>
             </ul>
+            <div class="search w-1/12 text-center">
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </header>
     <main class="container mx-auto">
-      <section class="flex block">
-        <div class="w-1/3 relative">
+      <section class="flex flex-wrap block">
+        <div class="w-full sm:w-full md:w-1/3 lg:w-1/3 relative" v-for="block in blocks" :key="block.img">
           <div class="relative">
             <a href="#">
-              <img src="~/assets/img/khay-dung-but-356x220.jpg" alt="" />
+              <img :src="`/img/${ block.img }`" :alt="`${ block.img }`" />
             </a>
           </div>
-          <div class="w-5/6 absolute text-white title-block">
-            <h3 class="text-xl"><a href="#">Gợi ý một số cách làm đồ handmade tái chế đơn giản, dễ dàng</a></h3>
+          <div class=" absolute text-white title-block">
+            <h3 class="text-xl">{{ block.title }}<a href="#"></a></h3>
             <div class="text-xs">
               <span class="font-bold">Cách làm hay</span> - <span>24/3/2021</span>
             </div>
           </div>
         </div>
-        <div class="w-1/3 relative">
-          <div class="relative">
-            <a href="#">
-              <img src="~/assets/img/dreamcatcher-356x220.jpg" alt="" />
-            </a>
-          </div>
-          <div class="w-5/6 absolute text-white title-block">
-            <h3 class="text-xl"><a href="#">Bật mí những món đồ handmade dễ làm, bạn không nên bỏ qua</a></h3>
-            <div class="text-xs">
-                <span class="font-bold">Cách làm hay</span> - <span>24/3/2021</span>
-            </div>
-          </div>
-        </div>
-        <div class="w-1/3 relative">
-          <div class="relative">
-            <a href="#">
-              <img src="~/assets/img/lo-hoa-bang-giay-bao-cu-356x220.jpg" alt="" />
-            </a>
-          </div>
-          <div class="w-5/6 absolute text-white title-block">
-            <h3 class="text-xl"><a href="#">Hướng dẫn cách làm một số món đồ handmade tái chế từ giấy</a></h3>
-            <div class="text-xs">
-                <span class="font-bold">Cách làm hay</span> - <span>24/3/2021</span>
-            </div>
-          </div>
-        </div>
       </section>
-      <section class="flex main-content mt-4">
-        <div class="list-post w-8/12">
+      <section class="flex flex-wrap main-content mt-4">
+        <div class="list-post w-full sm:w-full md:w-8/12 lg:w-8/12">
           <div class="title-content">
             <h3 class="text-xl font-bold">Mới nhất</h3>
             <div class="item-post flex" v-for="post in posts" :key="post.category">
               <div class="img w-4/12">
-                <img :src="require(`~/assets/img/${post.img}`)" alt="">
+                <img :src="`/img/${post.img}`" alt="">
               </div>
               <div class="title-post w-8/12">
                 <h3><a href="#">{{post.title}}</a></h3>
-                <p><span>{{post.category}}</span> CÁCH LÀM HAY - {{ post.date }}</p>
+                <p class="category-date"><span>{{post.category}}</span> CÁCH LÀM HAY - {{ post.date }}</p>
                 <div class="description">
                   <p>{{ post.description }}</p>
                 </div>
@@ -94,7 +71,7 @@
             </div>
           </div>
         </div>
-        <div class="side-bar w-4/12">
+        <div class="side-bar w-full sm:w-full md:w-4/12 lg:w-4/12">
           <h3 class="text-xl font-bold">Theo dõi chúng tôi</h3>
           <div class="follow flex">
             <div class="social">
@@ -112,7 +89,7 @@
           <div class="sidebar-post">
             <div class="flex" v-for="sidebar in sidebars" :key="sidebar.img">
               <div class="img-sidebar w-4/12">
-                <img :src="require(`~/assets/img/${ sidebar.img }`)" alt="">
+                <img :src="`/img/${ sidebar.img }`" alt="">
               </div>
               <div class="content-sidebar w-8/12">
                 <h3>{{ sidebar.title }}</h3>
@@ -121,17 +98,9 @@
             </div>
           </div>
           <div class="block_inner">
-            <div class="block relative">
-              <img class="relative" :src="require(`~/assets/img/tu-lam-do-choi-bang-chu-cai-cho-be-tu-nap-chai-nhua-696x392.png`)" alt="">
-              <h3 class="absolute font-bold"><a href="#">Tự làm đồ chơi bảng chữ cái cho bé từ nắp chai nhựa</a></h3>
-            </div>
-            <div class="block relative">
-              <img class="relative" :src="require(`~/assets/img/bup-be-len.jpg`)" alt="">
-              <h3 class="absolute font-bold"><a href="#">Hướng dẫn cách làm 3 món đồ handmade bằng len đơn giản</a></h3>
-            </div>
-            <div class="block relative">
-              <img class="relative" :src="require(`~/assets/img/cach-tu-lam-do-choi-domino-cho-be-4k-696x392.png`)" alt="">
-              <h3 class="absolute font-bold"><a href="#">Cách tự làm đồ chơi Domino cho bé</a></h3>
+            <div class="block relative" v-for="blockSidebar in blockSidebars" :key="blockSidebar.img">
+              <img class="relative" :src="`/img/${ blockSidebar.img }`" alt="">
+              <h3 class="absolute font-bold"><a href="#">{{ blockSidebar.title }}</a></h3>
             </div>
           </div>
         </div>
@@ -140,8 +109,8 @@
         <div class="title">
           <h3 class="text-xl font-bold">COVID-19</h3>
         </div>
-        <div class="flex">
-          <div class="country" v-for="covid in covids" :key="covid.number">
+        <div class="flex flex-wrap">
+          <div class="country w-full sm:w-full md:w-1/5 lg:w-1/5" v-for="covid in covids" :key="covid.number">
             <h3>{{ covid.country }}</h3>
             <p>{{ covid.number }}</p>
             <span>{{ covid.text }}</span>
@@ -153,7 +122,7 @@
       <div class="footer-main">
         <div class="container mx-auto">
           <div class="logo">
-            <img :src="require(`~/assets/img/logo-cachlamhay-final-tiny.png`)" alt="">
+            <img :src="`/img/logo-cachlamhay-final-tiny.png`" alt="">
           </div>
           <div class="about">
             <p>Đến với cửa hàng đồ handmade của chúng tôi thì chắc chắn bạn sẽ cảm nhận được sự khác biệt trong từng sản phẩm. Từ những món quà rất nhỏ như chiếc ví, tấm thiệp… đều có thể biến tấu thành món đồ handmade rất xinh xắn, dễ thương. Tất cả đều được yêu thích và ưa chuộng bởi sự sáng tạo và mang ý nghĩa thật đặc biệt. Dường như, mỗi món quà đều chứa đựng, gửi gắm tâm huyết, tình cảm của người làm…</p>
@@ -191,6 +160,20 @@
 export default {
   data () {
     return {
+      blocks: [
+        {
+          title: 'Gợi ý một số cách làm đồ handmade tái chế đơn giản, dễ dàng',
+          img: 'khay-dung-but-356x220.jpg'
+        },
+        {
+          title: 'Bật mí những món đồ handmade dễ làm, bạn không nên bỏ qua',
+          img: 'dreamcatcher-356x220.jpg'
+        },
+        {
+          title: 'Hướng dẫn cách làm một số món đồ handmade tái chế từ giấy',
+          img: 'lo-hoa-bang-giay-bao-cu-356x220.jpg'
+        }
+      ],
       covids: [
         {
           country: 'Việt Nam',
@@ -302,12 +285,26 @@ export default {
           date: '14/03/2021',
           description: 'Một trong những cách để các bạn nam dễ dàng thể hiện được tình cảm chân thành của mình đến nửa kia, đó chính là tặng quà vào những ngày...'
         }
+      ],
+      blockSidebars: [
+        {
+          img: 'tu-lam-do-choi-bang-chu-cai-cho-be-tu-nap-chai-nhua-696x392.png',
+          title: 'Tự làm đồ chơi bảng chữ cái cho bé từ nắp chai nhựa'
+        },
+        {
+          img: 'bup-be-len.jpg',
+          title: 'Hướng dẫn cách làm 3 món đồ handmade bằng len đơn giản'
+        },
+        {
+          img: 'cach-tu-lam-do-choi-domino-cho-be-4k-696x392.png',
+          title: 'Cách tự làm đồ chơi Domino cho bé'
+        }
       ]
     }
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  @import '~/assets/sass/main.scss';
 </style>
